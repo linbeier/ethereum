@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="jquery.jsonrpc.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <script src="bootstrap.min.js"></script>
+    <script src="web3.min.js"></script>
+    <script src="interact.js"></script>
+    <script src="demo.js"></script>
+</head>
+<body>
+<button id="bu">json-rpc getaccounts test</button>
+<h1>prepare unlock accounts for X transaction</h1>
+<div class="input-group">
+    <span class="input-group-addon" id="address">address:</span>
+    <input id="address_input" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+</div>
+<div class="input-group">
+    <span class="input-group-addon" id="password">password:</span>
+    <input id="password_input" type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+
+</div>
+
+<button id="submit_btn" class="btn btn-primary" type="button" onclick="unlock()">unlock</button>
+
+
+<!--X 交易开始-->
+
+<div class="page-header">
+    <h1>X transaction <small>save your personal info in a block</small></h1>
+</div>
+<div class="input-group">
+    <span class="input-group-addon" id="self_add">self address:</span>
+    <input id="self_addr" type="text" class="form-control" placeholder="your address" aria-describedby="basic-addon1">
+</div>
+<div class="input-group">
+    <span class="input-group-addon" id="friend_add1">friend address:</span>
+    <input id="friend_addr1" type="text" class="form-control" placeholder="your friends' address" aria-describedby="basic-addon1">
+</div>
+<div class="input-group">
+    <span class="input-group-addon" id="friend_add2">friend address:</span>
+    <input id="friend_addr2" type="text" class="form-control" placeholder="your friends' address" aria-describedby="basic-addon1">
+</div>
+<div class="input-group">
+    <span class="input-group-addon" id="email_add">email address:</span>
+    <input id="email_addr" type="text" class="form-control" placeholder="your email address" aria-describedby="basic-addon1">
+</div>
+
+<!-- Large modal -->
+<button id="xinfo" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="blockinfobyhash(Xblock_hash)">block info</button>
+
+<div id="xshow" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <p id="xblockhash">transaction hash: </p>
+            <p id="xblockinfo">info: </p>
+        </div>
+    </div>
+</div>
+
+<button id="sendX_btn" class="btn btn-primary" type="button">sendX</button>
+
+<!--A交易-->
+<div class="page-header">
+    <h1>A transaction <small>let miners challenge you</small></h1>
+</div>
+<div class="input-group">
+    <span class="input-group-addon" id="newaddress">new address:</span>
+    <input id="new_addr" type="text" class="form-control" placeholder="your new address" aria-describedby="basic-addon1">
+</div>
+<button id="ainfo" type="button" class="btn btn-primary" data-toggle="modal" data-target="#ashow" onclick="Ablockinfobyhash(Ablock_hash)">block info</button>
+
+<div id="ashow" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <p id="ablockhash">transaction hash: </p>
+            <p id="ablockinfo">info: </p>
+        </div>
+    </div>
+</div>
+<button id="sendA_btn" class="btn btn-primary" type="button">sendA</button>
+
+<!--C 交易-->
+
+
+
+</body>
+</html>
