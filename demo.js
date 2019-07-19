@@ -60,11 +60,11 @@ $(document).ready(function(){
                                 //blockinfobyhash(response);
                         },
                         fault: function (response, errordata) {
-                                console.log(response);
+                                alert(response);
                                 console.log(errordata);
                         },
                         error: function (request, status, error) {
-                                console.log(request);
+                                alert(request);
                                 console.log(status);
                                 console.log(error);
                         }
@@ -103,11 +103,71 @@ $(document).ready(function(){
 
                         },
                         fault: function (response, errordata) {
-                                console.log(response);
+                                alert(response);
                                 console.log(errordata);
                         },
                         error: function (request, status, error) {
-                                console.log(request);
+                                alert(request);
+                                console.log(status);
+                                console.log(error);
+                        }
+                })
+        });
+
+        $("#sendC_btn").click(function(){
+                var newaddr = $("#new_addr").val();
+                var btranaddr1 = $("#B_transaction_addr1").val();
+                var btranaddr2 = $("#B_transaction_addr2").val();
+                var bvericode1 = $("#B_verified_code1").val();
+                var bvericode2 = $("#B_verified_code2").val();
+
+                Cblockinfobyhsh(btranaddr1,btranaddr2);
+
+                $.jsonrpc({
+                        url:"http://127.0.0.1:8545",
+                        method:"eth_sendTransaction",
+                        params:[{
+                                from: newaddr,
+                                to: "0x6000000000000000000000000000000000000000",
+                                gas: "0x72bf0",
+                                gasPrice: "0x9172a",
+                                value: "0x1",
+                                extraData: "{\"address\": \"" +
+                                    newaddr +
+                                    "\",\"XAddress\":\"" +
+                                    Xblock_hash +
+                                    "\",\"XBlockNum\":" +
+                                    Xblocknum +
+                                    ",\"AAddress\":\"" +
+                                    Ablock_hash +
+                                    "\",\"ABlockNum\":" +
+                                    Ablocknum +
+                                    ",\"type\":\"0x4\",\"CaptchasNum\":2,\"Captchas\":[{\"Address\":\"" +
+                                    btranaddr1 +
+                                    "\",\"BlockNum\":" +
+                                    bblocknum1 +
+                                    ",\"Captcha\":\"" +
+                                    bvericode1 +
+                                    "\"},{\"Address\":\"" +
+                                    btranaddr2 +
+                                    "\",\"BlockNum\":" +
+                                    bblocknum2 +
+                                    ",\"Captcha\":\"" +
+                                    bvericode2 +
+                                    "\"}]}"
+                        }],
+                        id:1,
+                        success: function (response) {
+                                console.log(response);
+                                alert("success! please check it");
+
+                        },
+                        fault: function (response, errordata) {
+                                alert(response);
+                                console.log(errordata);
+                        },
+                        error: function (request, status, error) {
+                                alert(request);
                                 console.log(status);
                                 console.log(error);
                         }

@@ -10,21 +10,42 @@
     <script src="web3.min.js"></script>
     <script src="interact.js"></script>
     <script src="demo.js"></script>
+
 </head>
 <body>
-<button id="bu">json-rpc getaccounts test</button>
-<h1>prepare unlock accounts for X transaction</h1>
-<div class="input-group">
-    <span class="input-group-addon" id="address">address:</span>
-    <input id="address_input" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-</div>
-<div class="input-group">
-    <span class="input-group-addon" id="password">password:</span>
-    <input id="password_input" type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">unlock accounts </h3>
+    </div>
+    <div class="panel-body">
+        <div class="input-group">
+            <span class="input-group-addon" id="address">address:</span>
+            <input id="address_input" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="password">password:</span>
+            <input id="password_input" type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+
+        </div>
+        <button id="submit_btn" class="btn btn-primary" type="button" onclick="unlock()">unlock</button>
+    </div>
 
 </div>
 
-<button id="submit_btn" class="btn btn-primary" type="button" onclick="unlock()">unlock</button>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">get balance </h3>
+    </div>
+    <div class="panel-body">
+        <div class="input-group">
+            <span class="input-group-addon" id="address1">address:</span>
+            <input id="address_input1" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+        </div>
+        <button id="submit_btn1" class="btn btn-primary" type="button" onclick="getbalance()">sure</button>
+    </div>
+
+</div>
+
 
 
 <!--X 交易开始-->
@@ -33,18 +54,16 @@
     <h1>X transaction <small>save your personal info in a block</small></h1>
 </div>
 <div class="input-group">
-    <span class="input-group-addon" id="self_add">self address:</span>
+    <span class="input-group-addon" id="self_add">self  address:</span>
     <input id="self_addr" type="text" class="form-control" placeholder="your address" aria-describedby="basic-addon1">
-</div>
-<div class="input-group">
+
     <span class="input-group-addon" id="friend_add1">friend address:</span>
     <input id="friend_addr1" type="text" class="form-control" placeholder="your friends' address" aria-describedby="basic-addon1">
 </div>
 <div class="input-group">
     <span class="input-group-addon" id="friend_add2">friend address:</span>
     <input id="friend_addr2" type="text" class="form-control" placeholder="your friends' address" aria-describedby="basic-addon1">
-</div>
-<div class="input-group">
+
     <span class="input-group-addon" id="email_add">email address:</span>
     <input id="email_addr" type="text" class="form-control" placeholder="your email address" aria-describedby="basic-addon1">
 </div>
@@ -62,6 +81,8 @@
 </div>
 
 <button id="sendX_btn" class="btn btn-primary" type="button">sendX</button>
+
+
 
 <!--A交易-->
 <div class="page-header">
@@ -83,9 +104,30 @@
 </div>
 <button id="sendA_btn" class="btn btn-primary" type="button">sendA</button>
 
+
+
 <!--C 交易-->
+<div class="page-header">
+    <h1>C transaction <small>send your varify code</small></h1>
+</div>
+<div class="input-group">
+    <span class="input-group-addon" id="baddress1">B transaction address1:</span>
+    <input id="B_transaction_addr1" type="text" class="form-control" placeholder="your B transation address" aria-describedby="basic-addon1">
+
+    <span class="input-group-addon" id="bcode2">verified code1:</span>
+    <input id="B_verified_code1" type="text" class="form-control" placeholder="your B verified code " aria-describedby="basic-addon1">
+
+</div>
+<div class="input-group">
+    <span class="input-group-addon" id="baddress2">B transaction address2:</span>
+    <input id="B_transaction_addr2" type="text" class="form-control" placeholder="your B transation address" aria-describedby="basic-addon1">
+
+    <span class="input-group-addon" id="bcode1">verified code2:</span>
+    <input id="B_verified_code2" type="text" class="form-control" placeholder="your B verified code " aria-describedby="basic-addon1">
 
 
+</div>
+<button id="sendC_btn" class="btn btn-primary" type="button">sendC</button>
 
 </body>
 </html>
