@@ -33,6 +33,7 @@ $(document).ready(function(){
                 var friendaddr2 = $("#friend_addr2").val();
                 var emailaddr = $("#email_addr").val();
 
+
                 $.jsonrpc({
                         url:"http://127.0.0.1:8545",
                         method:"eth_sendTransaction",
@@ -75,6 +76,10 @@ $(document).ready(function(){
         $("#sendA_btn").click(function () {
 
                 var newaddr = $("#new_addr").val();
+                if(!(Xblock_hash&& Xblocknum))
+                {
+                        alert("please check block info!");
+                }
 
                 $.jsonrpc({
                         url:"http://127.0.0.1:8545",
@@ -137,6 +142,12 @@ $(document).ready(function(){
                                 //alert("good!"+result);
                                 console.log(result);
                                 bblocknum2 = result.blockNumber;
+
+                                if(!(Xblock_hash&&Xblocknum&&Ablock_hash&&Ablocknum&&bblocknum1&&bblocknum2))
+                                {
+                                        alert("please check block info !")
+                                }
+
                                 $.jsonrpc({
                                         url:"http://127.0.0.1:8545",
                                         method:"eth_sendTransaction",
