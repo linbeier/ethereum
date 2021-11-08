@@ -1,19 +1,4 @@
-/**
- * jQuery JSON-RPC Plugin
- *
- * A JSON-RPC 2.0 implementation for jQuery.
- *
- * JSON-RPC is a lightweight remote procedure call protocol. It's designed to be simple!
- *
- * Note: If browser has not window.JSON you must require JSON libs from
- * Douglas Crockford <https://github.com/douglascrockford/JSON-js>.
- * 
- * @author outaTiME (afalduto [at] gmail dot com).
- * @version: 0.2.0 (2011-06-14)
- *
- * This document is licensed as free software under the terms of the
- * MIT License: http://www.opensource.org/licenses/mit-license.php
- */
+
  
 /*global jQuery */
 (function($) {
